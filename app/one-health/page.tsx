@@ -1,7 +1,7 @@
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SmartImage from "../components/SmartImage";
-import { oneHealthTriptych, heroImage } from "../lib/images";
+import { oneHealthTriptych, oneHealthHero } from "../lib/images";
 
 export const metadata = {
   title: "One Health",
@@ -58,8 +58,8 @@ export default function OneHealthPage() {
           <Reveal>
             <figure className="km-image-frame aspect-[16/7] rounded-sm">
               <SmartImage
-                src={heroImage.src}
-                alt={heroImage.alt}
+                src={oneHealthHero.src}
+                alt={oneHealthHero.alt}
                 fill
                 sizes="100vw"
                 className="object-cover"

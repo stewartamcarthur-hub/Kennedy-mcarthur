@@ -175,6 +175,21 @@ body {
     linear-gradient(180deg, rgba(255,255,255,0.0) 70%, rgba(255,255,255,0.5) 100%);
 }
 
+/* Slow Ken Burns motion on a hero image */
+@keyframes km-kenburns {
+  0%   { transform: scale(1.06) translate3d(-1.4%, -0.6%, 0); }
+  100% { transform: scale(1.12) translate3d(1.4%, 0.6%, 0); }
+}
+
+.km-kenburns {
+  animation: km-kenburns 38s ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .km-kenburns { animation: none; transform: scale(1.04); }
+}
+
 /* Image treatments */
 .km-img-mono {
   filter: grayscale(0.15) contrast(1.02) brightness(0.98);
