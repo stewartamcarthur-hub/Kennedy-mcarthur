@@ -6,29 +6,32 @@
 --------------------------------------------------------------- */
 
 @theme inline {
-  /* Monochrome palette — warm stone */
-  --color-ink: #0a0a0a;
-  --color-ink-soft: #1c1917;
-  --color-graphite: #292524;
+  /* Editorial palette — warm cream, deep forest, clay */
+  --color-ink: #1a1611;            /* Warm charcoal — never pure black */
+  --color-ink-soft: #2a2418;
+  --color-graphite: #3d3623;
   --color-stone-900: #1c1917;
-  --color-stone-800: #292524;
-  --color-stone-700: #44403c;
-  --color-stone-600: #57534e;
-  --color-stone-500: #78716c;
-  --color-stone-400: #a8a29e;
-  --color-stone-300: #d6d3d1;
-  --color-stone-200: #e7e5e4;
-  --color-stone-100: #f5f5f4;
-  --color-stone-50:  #fafaf9;
-  --color-paper: #ffffff;
+  --color-stone-800: #2a2418;
+  --color-stone-700: #3d3623;
+  --color-stone-600: #524932;
+  --color-stone-500: #6e6248;
+  --color-stone-400: #8c7e60;
+  --color-stone-300: #b3a78a;
+  --color-stone-200: #d6cdb4;
+  --color-stone-100: #ede5d2;
+  --color-stone-50:  #f5efde;
+  --color-paper: #faf6ec;          /* Warm cream, replaces white */
 
-  /* Accents — used sparingly */
-  --color-forest: #1f4a3f;       /* Deep botanical, "One Health" anchor */
-  --color-forest-deep: #0e2b22;
-  --color-forest-soft: #d8e4dd;  /* Tinted background */
-  --color-clay: #b85f3c;         /* Warm earth, secondary highlight */
-  --color-clay-soft: #f3e3d8;    /* Tinted background */
-  --color-cream: #f4ede2;        /* Editorial paper warm */
+  /* Accents */
+  --color-forest: #1e3a2c;         /* Deeper botanical, "One Health" anchor */
+  --color-forest-mid: #2d5440;
+  --color-forest-deep: #0e1f17;
+  --color-forest-soft: #d3dfd2;    /* Tinted background */
+  --color-clay: #b65f3c;           /* Warm earth */
+  --color-clay-soft: #ecd3bb;
+  --color-sun: #c79b58;            /* Gold/champagne accent */
+  --color-cream: #f5efde;
+  --color-mist: #e9e4d3;           /* Misty atmosphere */
 
   /* Typography */
   --font-sans: var(--font-inter), ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
@@ -173,6 +176,58 @@ body {
   background:
     radial-gradient(ellipse at center, transparent 50%, rgba(10,10,10,0.12) 100%),
     linear-gradient(180deg, rgba(255,255,255,0.0) 70%, rgba(255,255,255,0.5) 100%);
+}
+
+/* ---------------------------------------------------------------
+   Animated hero scene — drifting cattle, breathing sun, parallax
+--------------------------------------------------------------- */
+
+@keyframes km-graze-1 {
+  0%, 100% { transform: translateX(0px); }
+  50%      { transform: translateX(60px); }
+}
+@keyframes km-graze-2 {
+  0%, 100% { transform: translateX(0px); }
+  50%      { transform: translateX(-45px); }
+}
+@keyframes km-walk-right {
+  0%   { transform: translateX(-12vw); }
+  100% { transform: translateX(112vw); }
+}
+@keyframes km-walk-left {
+  0%   { transform: translateX(112vw); }
+  100% { transform: translateX(-12vw); }
+}
+@keyframes km-bird-drift {
+  0%   { transform: translate(-15vw, 0); }
+  100% { transform: translate(115vw, -3vh); }
+}
+@keyframes km-sun-breathe {
+  0%, 100% { transform: scale(1); opacity: 0.85; }
+  50%      { transform: scale(1.04); opacity: 1; }
+}
+@keyframes km-haze {
+  0%, 100% { transform: translateX(0); opacity: 0.55; }
+  50%      { transform: translateX(2%); opacity: 0.7; }
+}
+@keyframes km-mountain-shimmer {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(0.5%); }
+}
+
+.km-scene .graze-1  { animation: km-graze-1 32s ease-in-out infinite; transform-origin: center; }
+.km-scene .graze-2  { animation: km-graze-2 38s ease-in-out infinite; }
+.km-scene .walk-r   { animation: km-walk-right 180s linear infinite; }
+.km-scene .walk-r-2 { animation: km-walk-right 240s linear infinite; }
+.km-scene .walk-l   { animation: km-walk-left 220s linear infinite; }
+.km-scene .bird     { animation: km-bird-drift 90s linear infinite; }
+.km-scene .bird-2   { animation: km-bird-drift 120s linear infinite; animation-delay: -40s; }
+.km-scene .sun      { animation: km-sun-breathe 14s ease-in-out infinite; transform-origin: center; transform-box: fill-box; }
+.km-scene .haze     { animation: km-haze 22s ease-in-out infinite; }
+.km-scene .mtn-far  { animation: km-mountain-shimmer 20s ease-in-out infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  .km-scene * { animation: none !important; }
 }
 
 /* Slow Ken Burns motion on a hero image */
