@@ -1,6 +1,7 @@
 import PageHero from "../components/PageHero";
 import Reveal from "../components/Reveal";
 import SmartImage from "../components/SmartImage";
+import Testimonials from "../components/Testimonials";
 import { aboutImage } from "../lib/images";
 
 export const metadata = {
@@ -12,23 +13,25 @@ export const metadata = {
 const partners = [
   {
     name: "Joe Kennedy",
-    role: "Founder & Managing Partner",
+    role: "Founding Partner",
     initials: "JK",
     bg: "bg-ink text-paper",
     bio: [
-      "Joe Kennedy has spent over a decade building leadership teams at the most complex intersection of science and commerce: global Animal Health.",
-      "A former number-one-ranked global performer in his previous firm, Joe has led senior mandates for the world’s largest pharmaceutical, vaccine, and veterinary organizations across Europe, North America, and Asia-Pacific. He served on the Senior Leadership Team that successfully navigated a private equity sale.",
-      "He founded Kennedy McArthur on a single conviction: that the sectors sustaining life deserve executive search delivered with the same rigor as the science itself.",
+      "Joe Kennedy, Founding Partner of Kennedy McArthur and BoardForge, brings a unique focus to Animal Health and the One Health ecosystem. He is a proven executive search professional with extensive international experience spanning the functions of this segment — senior scientific, medical and veterinary, commercial, operational, and corporate.",
+      "Before launching Kennedy McArthur, Joe served as Managing Director of Animal Health for WittKieffer, a top-ten global executive search firm. Prior to this he was Managing Director for a UK-based life sciences recruitment firm, where he excelled as a top performer and displayed a strong ability to forge trust-based relationships with clients and candidates. Joe led that organization’s efforts in Animal Health, ESG, and diversity, equity, and inclusion, and was part of the leadership team that sold the business to private equity backers.",
+      "Prior to this he served as Executive Consultant at another global recruiting firm, focusing on Animal Health globally.",
+      "His passion for the Animal Health space is rooted in his love for animals and the environment — a conviction that caring for the living ecosystems of the world, and its inhabitants, makes us more human.",
     ],
   },
   {
     name: "Stewart McArthur",
-    role: "Partner",
+    role: "Founding Partner",
     initials: "SM",
     bg: "bg-[var(--color-forest)] text-paper",
     bio: [
-      "Stewart McArthur brings nearly 20 years of experience to the executive search and talent industry, with a career spanning leadership roles at both regional and global levels.",
-      "His background combines hands-on commercial delivery with board-level responsibility, providing a broad perspective on how people strategy directly drives business performance. Having been an integral part of early-stage startup journeys, he possesses a first-hand understanding of the unique challenges involved in scaling teams and sustaining a high-growth business.",
+      "Stewart McArthur brings nearly 20 years of experience to the executive search and talent industry, with a career spanning leadership roles at both regional and global levels. His background combines hands-on commercial delivery with board-level responsibility, providing a broad perspective on how people strategy directly drives business performance.",
+      "Throughout his career, Stewart has worked closely with private equity investors and executive leadership teams to help organizations scale, restructure, and strengthen their talent functions. Having been an integral part of early-stage startup journeys, he possesses a first-hand understanding of the unique challenges involved in scaling teams and sustaining a high-growth business. He has overseen thousands of STEM hires, supporting critical projects worldwide and building long-term partnerships with clients in complex, regulated industries.",
+      "Stewart’s approach is defined by a focus on delivering results with clarity, pace, and integrity. Whether advising at the board level, leading teams through organizational change, or executing senior search assignments, he maintains a consistent emphasis on aligning leadership and technical expertise with a business’s overarching strategic objectives.",
       "Today, Stewart partners with organizations seeking a trusted advisor to navigate senior hiring, leadership advisory, or interim needs with discretion and measurable impact.",
     ],
   },
@@ -103,6 +106,18 @@ export default function AboutPage() {
           ))}
         </div>
       </section>
+
+      {/* Testimonials */}
+      <Testimonials
+        eyebrow="Direct client feedback"
+        title={
+          <>
+            Words from those who&rsquo;ve worked with us{" "}
+            <em className="text-[var(--color-forest)]">first-hand.</em>
+          </>
+        }
+        intro="Selected quotes from senior clients across Animal Health, sustainability, and regulated industries."
+      />
 
       {/* Manifesto strip */}
       <section className="bg-[var(--color-forest-deep)] text-paper">

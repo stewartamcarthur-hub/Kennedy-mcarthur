@@ -137,6 +137,44 @@ body {
   .km-marquee { animation: none; }
 }
 
+/* ---------------------------------------------------------------
+   Hero backdrop — mesh gradient + topographic SVG drift
+--------------------------------------------------------------- */
+
+.km-mesh {
+  background-color: var(--color-cream);
+  background-image:
+    radial-gradient(at 20% 30%, var(--color-forest-soft) 0, transparent 55%),
+    radial-gradient(at 78% 22%, var(--color-clay-soft) 0, transparent 50%),
+    radial-gradient(at 70% 82%, var(--color-stone-100) 0, transparent 55%),
+    radial-gradient(at 32% 78%, var(--color-forest-soft) 0, transparent 60%);
+  background-size: 140% 140%;
+  animation: km-mesh-drift 28s ease-in-out infinite alternate;
+}
+
+@keyframes km-mesh-drift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 30% 80%; }
+}
+
+@keyframes km-topo-drift {
+  0%   { transform: translate3d(-2.5%, 0, 0) scale(1.02); }
+  100% { transform: translate3d(2.5%, 0.6%, 0) scale(0.99); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .km-mesh { animation: none; background-position: 30% 50%; }
+  .km-topo path { animation: none !important; }
+}
+
+.km-vignette {
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at center, transparent 50%, rgba(10,10,10,0.12) 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.0) 70%, rgba(255,255,255,0.5) 100%);
+}
+
 /* Image treatments */
 .km-img-mono {
   filter: grayscale(0.15) contrast(1.02) brightness(0.98);
